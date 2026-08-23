@@ -99,28 +99,3 @@ All five are Animation titles — a coherent family/kids result from an engine t
 **46.7%** of all users have ≤5 titles of history and **18.3%** have exactly one. Collaborative filtering is effectively useless for them — which is why an onboarding taste picker is a hard prerequisite for shipping this, not a nice-to-have.
 
 ---
-
-## 5. How to re-run this stage
-
-```bash
-jupyter notebook stc_TV_T3_Recommender.ipynb    # ~5 min, needs 8 GB RAM
-```
-
-**Dependencies:** `pandas numpy scikit-learn scipy openpyxl`
-
-The item-similarity matrix is 6,927² dense (≈190 MB) — if memory is tight, raise `MIN_INTERACTIONS` to 10 or run on Colab.
-
-**Performance tip** — the 36 MB `.xlsx` takes ~53 s to parse. Cache it once:
-
-```python
-dataframe.to_parquet("t3.parquet")
-dataframe = pd.read_parquet("t3.parquet")   # subsequent runs: <1 s
-```
-
-**Tuning knob:** `MIN_INTERACTIONS = 5`. Lowering it increases coverage but degrades precision — see the cold-start table above.
-
----
-
-## 6. Limits declared for this stage
-
-The feedback is **implicit** — a `rating` derived from viewing, not a star a user chose to give, so "liked" and "watched to the end" are not distinguishable here. Evaluation is a **random hold-out, not a temporal one**, so it measures taste consistency rather than true next-play prediction. There is **no content metadata in the model** (no genre, cast or synopsis features) — the genre coherence in the Moana result is emergent from co-viewing, which also means the engine cannot recommend a title nobody has watched yet. And filtering to ≥5 interactions means the model is trained on the **6,700 users who least need help discovering things**; the other 4,878 are exactly the population an onboarding taste picker has to cover.
