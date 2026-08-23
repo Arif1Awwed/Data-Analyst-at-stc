@@ -73,47 +73,22 @@ This project answers those questions across three progressive analytical tasks, 
 ## 2. Repository & Folder Structure
 
 ```
-محلل بيانات في stc/
+
+├── README.md                           ← Main project documentation
+├── stc_TV_Deck_A_English.pptx           ← Executive presentation deck (English)
+├── stc_TV_Deck_B_Arabic.pptx            ← Executive presentation deck (Arabic)
 │
-├── README.md                                  ← you are here
+├── stc TV_T1/                           ── TASK 1 · Behavioural analytics & prediction
+│   ├── stc TV_T1.ipynb                  ← Main analysis notebook
+│   ├── stc_tv_simple_analysis.py        ← Lightweight KPI analysis script
+│   └── stc_tv_user_behavior_analysis.py ← Full user behavior analysis pipeline
 │
-├── stc TV_T1/                                 ── TASK 1 · Behavioural analytics & prediction
-│   ├── stc TV Data Set_T1.xlsb                   Raw binary Excel log (39 MB, sheet: Final_Dataset)
-│   ├── stc TV_T1.ipynb                           Main notebook — 35 cells, 9 analytical sections
-│   ├── stc_tv_user_behavior_analysis.py          Full pipeline as a script (~1,300 lines)
-│   ├── stc_tv_simple_analysis.py                 Lightweight KPI-only variant
-│   ├── stc_cleaned_data.csv                      Cleaned + feature-engineered export (255 MB)
-│   ├── stc_cleaned_data_sample.csv               1,000-row sample for quick inspection
-│   ├── top10_movies.csv                          Top-10 movies by views
-│   ├── top10_series.csv                          Top-10 series by views
-│   ├── top10_episodes.csv                        Top-10 individual episodes
-│   └── outputs/                                  27 numbered analytical deliverables
-│       ├── 01_schema.csv          … 03_summary_clean.csv       Data profiling
-│       ├── 04_kpi_scorecard.csv   … 06_series_depth.csv        Headline KPIs
-│       ├── 07–11_top_*.csv                                     Ranking tables
-│       ├── 12_reach_depth_corr.csv … 15_genre_performance.csv  Content diagnostics
-│       ├── 16_quality_scorecard.csv … 18_genre_quality.csv     HD vs SD analysis
-│       ├── 19_user_profiles.csv   … 22_segment_crosstab.csv    Segmentation
-│       ├── 23_demand_forecast.csv                              14-day forecast
-│       ├── 24_churn_drivers.csv   … 26_hd_drivers.csv          Model coefficients
-│       ├── 27_anomaly_watchlist.csv                            UBA anomaly flags
-│       ├── churn_scores.csv                                    Per-user churn probability
-│       ├── user_segments.csv                                   Per-user segment assignment
-│       └── stc_tv_analysis_report.xlsx                         All tables, one workbook
+├── stc_TV_T2/                           ── TASK 2 · Demand forecasting
+│   └── stc_TV_T2.ipynb                  ← Peak-day analysis & demand forecast notebook
 │
-├── stc_TV_T2/                                 ── TASK 2 · Demand forecasting
-│   ├── stc_tv_dataset_t2.csv                     411 daily observations (4 columns)
-│   ├── stc TV Data Set_T2 - Sheet1.csv            86-day watch-hour extract
-│   └── stc_TV_T2.ipynb                           Peak-day analysis + 60-day forecast
-│
-├── stc TV_T3/                                 ── TASK 3 · Recommendation engine
-│   ├── stc TV Data Set_T3.xlsx                   Ratings dataset (36 MB)
-│   ├── stc TV_T3.ipynb                           Assignment notebook (TODO cells completed)
-│   ├── stc_TV_T3_Recommender.ipynb               Full Colab notebook — 34 cells, EN
-│   └── stc_tv_recommendations_sample.csv         Sample engine output for 10 users
-│
-├── stc_TV_Deck_A_English.pptx                 ── Executive deck · English · 7 slides
-└── stc_TV_Deck_B_Arabic.pptx                  ── Executive deck · Arabic (RTL) · 7 slides
+└── stc TV_T3/                           ── TASK 3 · Recommendation engine
+├── stc TV_T3.ipynb                  ← Assignment notebook
+└── stc_TV_T3_Recommender.ipynb      ← Full recommendation engine notebook
 ```
 
 ---
