@@ -120,33 +120,4 @@ Diagnostic findings converted into prescriptive actions, then every table export
 
 ---
 
-## 5. How to re-run this stage
-
-```bash
-# Notebook (recommended)
-jupyter notebook "stc TV_T1.ipynb"          # ~8–12 min, needs 8 GB RAM
-
-# Or headless
-python stc_tv_user_behavior_analysis.py     # full pipeline + all exports
-python stc_tv_simple_analysis.py            # lightweight KPI-only variant
-```
-
-**Dependencies:** `pandas numpy scikit-learn scipy matplotlib plotly pyxlsb openpyxl`
-(`pyxlsb` is mandatory — the source file is binary Excel, not `.xlsx`.)
-
-**Config switches** live in the `CONFIG` dict at the top of the notebook / script:
-
-| Key | Default | Effect |
-|---|---|---|
-| `DATA_PATH` / `SHEET_NAME` | `stc TV Data Set_T1.xlsb` / `Final_Dataset` | Where to read from |
-| `MAX_PLAUSIBLE_SESSION_HOURS` | `12` | Stuck-stream cut-off |
-| `BOUNCE_SECONDS` | `60` | Bounce threshold |
-| `DROP_EXACT_DUPLICATES` | `False` | Report duplicates vs remove them |
-| `EXPORT_RESULTS` / `OUTPUT_DIR` | `True` / `outputs` | Write every table to disk |
-| `RANDOM_STATE` | `42` | Reproducible model splits |
-
----
-
-## 6. Limits declared for this stage
-
 `date_` is **date-only** — no hour component, so day-of-week peaks are provable but "peak hours" are not. There is **no clickstream, no demographics and no device field**. "Churn" here means *30 days of inactivity modelled from behaviour* — not an observed cancellation. Every UX conclusion drawn downstream from this stage is a behavioural proxy and is labelled as such.
