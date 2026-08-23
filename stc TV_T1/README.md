@@ -119,5 +119,3 @@ Diagnostic findings converted into prescriptive actions, then every table export
 **Churn is a recency problem** — `recency_days` dominates every other coefficient (**+1.497**), while `active_days` (−0.691) and `genres_explored` (−0.260) protect. 68.8% of users sit in the Critical band, yet the 930 Low-risk users hold **131,223 hours** — more than the entire Critical tail puts at risk.
 
 ---
-
-`date_` is **date-only** — no hour component, so day-of-week peaks are provable but "peak hours" are not. There is **no clickstream, no demographics and no device field**. "Churn" here means *30 days of inactivity modelled from behaviour* — not an observed cancellation. Every UX conclusion drawn downstream from this stage is a behavioural proxy and is labelled as such.
