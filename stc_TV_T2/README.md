@@ -74,21 +74,3 @@ Task 1 answered *what happened and why*. This stage answers *what happens next*,
 **Cross-check against Task 1:** an independent Linear Regression (trend + day-of-week dummies) in T1 §7 projected **≈624 watch hours/day** at **MAPE 10.9%** on hold-out. Two different methods, mutually consistent — which is the point of running both.
 
 ---
-
-## 5. How to re-run this stage
-
-```bash
-jupyter notebook stc_TV_T2.ipynb    # <1 minute, pandas + matplotlib only
-```
-
-No modelling libraries are needed. To change the forecast window, edit one line in Step 3a:
-
-```python
-recent = data[data["date_"] > last_date - pd.Timedelta(days=84)]   # 84 = 12 weeks
-```
-
----
-
-## 6. Limits declared for this stage
-
-The source `date_` is **date-only**, so this stage can prove *day-of-week* seasonality and nothing about hours of the day — "peak hours" is not a claim this data supports. The forecast is **seasonal-naïve**: it carries recent weekday levels forward and assumes no campaign, catalogue or pricing shock. It is a capacity-planning baseline, not a growth projection — the underlying trend over the 413-day window is **−38.5% year over year**, and the forecast reflects the recent level rather than trying to extrapolate that decline.
